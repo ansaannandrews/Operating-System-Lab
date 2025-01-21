@@ -7,12 +7,12 @@
 void main() {
      pid_t childpid = fork();
      if(childpid == 0) {
-          printf("\nI am in the child process");
+          printf("\nI am in the child process and the child process is created");
           printf("PARENT ID = %d\n",getppid());
           printf("CHILD ID = %d\n",getpid());
      }
      if(childpid > 0) {
-          printf("\nI am in the parent process");
+          printf("\nI am in the parent process and the child process is created");
           printf("PARENT ID = %d\n",getpid());
           printf("CHILD ID = %d\n",childpid);
           wait(NULL);
@@ -22,4 +22,4 @@ void main() {
           printf("\nFork failed! Unable to create a child process.\n");    
      }
      exit(0);
-}     
+}
