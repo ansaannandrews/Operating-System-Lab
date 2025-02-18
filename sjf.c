@@ -1,22 +1,29 @@
 #include<stdio.h>
 void main() {
-     int n, i, j, bt[n], wt[n], tat[n] ,ct = 0, temp;
+     int n, i, j, ct = 0, temp;
      double  avgtat = 0,avgwt =0;
      printf("Enter the Number of Processes: ");
      scanf("%d",&n);
+     
+     int bt[n], wt[n], tat[n] , p[n];
      printf("Enter Burst Time of");
      for(i = 0;i < n;i++) {
+          p[i] = i + 1;
           printf("\n                      P%d : ",(i+1));
           scanf("%d",&bt[i]);
      }
      
-     //BUBBLE SORT
+     //SORTING
      for(i = 0; i < n-1; i++) {
-        for(j = 0; j < n-i-1; j++) {
-            if(bt[j] > bt[j+1]) {
-                temp = bt[j];
-                bt[j] = bt[j+1];
-                bt[j+1] = temp;
+        for(j = i + 1; j < n; j++) {
+            if(bt[i] > bt[j]) {
+                temp = bt[i];
+                bt[i] = bt[j];
+                bt[j] = temp;
+                
+                temp = p[i];
+                p[i] = p[j];
+                p[j] = temp;
             }
         }
     }
@@ -38,7 +45,7 @@ void main() {
      printf("\n|\tProcess\t|\tBT\t|\tWT\t|\tTAT\t|");
      printf("\n-----------------------------------------------------------------");
      for(i = 0;i < n; i++) {
-          printf("\n|\tP%d\t|\t%d\t|\t%d\t|\t%d\t|\n",(i+1),bt[i],wt[i],tat[i]);
+          printf("\n|\tP%d\t|\t%d\t|\t%d\t|\t%d\t|\n",p[i],bt[i],wt[i],tat[i]);
      }
      printf("-----------------------------------------------------------------");
      printf("\n\n");
@@ -53,7 +60,7 @@ void main() {
      }
      printf("\n|");
      for(i = 0;i < n;i++) {
-          printf("  P%d  |",i+1);   
+          printf("  P%d  |",p[i]);   
      }
      printf("\n");
      for(i = 0;i < n;i++) {
