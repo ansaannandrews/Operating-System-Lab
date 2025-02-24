@@ -1,14 +1,14 @@
 #include<stdio.h>
 
-void main() {
-    int mb, ps, i, j, temp;
+int main() {
+    int mb, ps, i, j;
 
     printf("Enter the Number of Memory Blocks: ");
     scanf("%d", &mb);
 
     struct memory {
         int msize, alloc;
-    } m[mb];
+    } m[mb],temp;
 
     printf("Enter the size of Each Memory Block:\n");
     for(i = 0; i < mb; i++) {
@@ -34,11 +34,11 @@ void main() {
         for(j = 0;j < mb-1;j++) {
             if(m[j].msize>m[j+1].msize)
 		{
-			temp=m[j].msize;
+			temp = m[j];
 	
-			m[j].msize=m[j+1].msize;
+			m[j] =m[j+1];
 		
-			m[j+1].msize=temp;
+			m[j+1] = temp;
 	
 		}
 	}
@@ -60,4 +60,3 @@ void main() {
             printf("\nThere is no space for Process of size %d!!!!!\n", p[i].psize);
         }
     }
-}
