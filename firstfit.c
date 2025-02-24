@@ -30,12 +30,12 @@ void main() {
     }
     printf("\n\n");
 
-    for(i = 0; i < ps; i++) {
+    for(i = 0; i < ps; i++) {  // for process
         int allocated = 0;
-        for(j = 0; j < mb; j++) {
-            if(p[i].flag == 0 && m[j].alloc == 0 && p[i].psize <= m[j].msize) {
+        for(j = 0; j < mb; j++) { // for memory
+            if( m[j].alloc == 0 && p[i].psize <= m[j].msize) {
+                m[j].alloc = p[i].flag;
                 m[j].alloc = 1;
-                p[i].flag = 1;
                 printf("Process of size %d is allocated in Block of size %d\n", p[i].psize, m[j].msize);
                 allocated = 1;
                 break;
