@@ -60,3 +60,4 @@ int main() {
             printf("\nThere is no space for Process of size %d!!!!!\n", p[i].psize);
         }
     }
+}
