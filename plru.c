@@ -17,7 +17,7 @@ int main() {
         frame[i] = -1;
      }
      
-     int RU[k];
+     int RU[f];
      for(i = 0;i < f;i++) {
         RU[i] = -1;
      }
